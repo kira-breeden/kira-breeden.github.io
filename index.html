@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Breeden - Academic Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .title {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        nav {
+            background: white;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: #3498db;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .research-item, .publication-item, .course-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .research-item h3, .publication-item h3, .course-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .publication-item {
+            border-left-color: #e74c3c;
+        }
+
+        .course-item {
+            border-left-color: #27ae60;
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 4px 10px;
+            margin: 2px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            border: 1px solid #bdc3c7;
+        }
+
+        .cv-download {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .cv-download a {
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cv-download a:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #7f8c8d;
+            border-top: 1px solid #ecf0f1;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150x150/2c3e50/ffffff?text=Photo" alt="Profile Photo" class="profile-img">
+            <h1>Kira Breeden</h1>
+            <div class="title"> Psychology PhD Student <br>[University of Wisconsin-Madison]</div>
+            <div class="contact-info">
+                <a href="mailto:kbreeden@wisc.edu">📧 Email</a>
+                <a href="https://scholar.google.com/citations?user=YOUR_ID">📚 Google Scholar</a> <!-- TO DO -->
+                <a href="https://linkedin.com/in/yourprofile">💼 LinkedIn</a> <!-- TO DO -->
+                <a href="https://twitter.com/yourusername">🐦 Twitter</a> <!-- TO DO -->
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#cv">CV</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="about" class="section">
+                <h2>About Me</h2> <!-- TO DO -->
+                <p>I am a third-year PhD student in the Department of Psychology at The University of Wisconsin-Madison, working with Professor Gary Lupyan. My research focuses on language and cognition, with particular interests in semantic representation and inner speech.</p>
+                
+                <p>I received my B.S. in Computational Cognitive Science from The University of Michigan, where I worked under the supervision of Dr. Twila Tardif and Dr. Susan Gelman. Prior to my PhD at the University of Wisconsin-Madison, I completed a Master in Data Science at Northwestern University and worked as a Data Scientist for two years.</p>
+                
+                <p>I am passionate about research questions involving how language informs the way we respresent information, and how we as humans represent, gain, and manipulate semantic knowledge through language learning and use.</p>
+            </section>
+
+            <section id="research" class="section">
+                <h2>Research Interests</h2> <!-- TO DO -->
+                
+                <div class="research-item">
+                    <h3>Semantic Representation and Ambiguity</h3>
+                    <p>I am currently involved in multiple projects investigating the relationship between contextual semantic ambiguity and our ability to infer meaning of unknown or novel words.</p>
+                    <!-- <div class="tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Data Science</span>
+                        <span class="tag">Algorithm Design</span>
+                    </div> -->
+                </div>
+
+                <div class="research-item">
+                    <h3>Research Area 2</h3> <!-- TO DO -->
+                    <p>Description of your second major research area. Highlight ongoing projects and future directions.</p>
+                    <div class="tags">
+                        <span class="tag">Statistical Modeling</span>
+                        <span class="tag">Computational Methods</span>
+                        <span class="tag">Applied Mathematics</span>
+                    </div>
+                </div>
+
+                <div class="research-item">
+                    <h3>Research Area 3</h3> <!-- TO DO -->
+                    <p>Description of your third major research area. Mention collaborations and interdisciplinary work.</p>
+                    <div class="tags">
+                        <span class="tag">Interdisciplinary Research</span>
+                        <span class="tag">Collaboration</span>
+                        <span class="tag">Innovation</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="publications" class="section">
+                <h2>Selected Publications</h2>
+                
+                <div class="publication-item"> <!-- TO DO -->
+                    <div class="date">2024</div>
+                    <h3>Title of Your Recent Paper</h3>
+                    <p><strong>Your Name</strong>, Co-author Name, Another Author. <em>Journal Name</em>, Vol. X, No. Y, pp. Z-Z.</p>
+                    <p>Brief description of the paper's contribution and significance.</p>
+                </div>
+
+                <div class="publication-item">
+                    <div class="date">2023</div>
+                    <h3>Another Important Publication</h3>
+                    <p><strong>Your Name</strong>, Collaborator Name. <em>Conference Proceedings</em>, pp. X-Y.</p>
+                    <p>Summary of this work and its impact on the field.</p>
+                </div>
+
+                <div class="publication-item">
+                    <div class="date">2023</div>
+                    <h3>Collaborative Research Paper</h3>
+                    <p>First Author, <strong>Your Name</strong>, Third Author. <em>High-Impact Journal</em>, Vol. A, No. B.</p>
+                    <p>Description of your contribution to this collaborative effort.</p>
+                </div>
+
+                <p style="margin-top: 20px;"><a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">View all publications on Google Scholar →</a></p>
+            </section>
+
+            <section id="teaching" class="section">
+                <h2>Teaching</h2> <!-- TO DO -->
+                
+                <div class="course-item">
+                    <h3>Course Code: Course Title</h3>
+                    <div class="date">Fall 2024, Spring 2024</div>
+                    <p>Undergraduate/Graduate level course covering [topics]. Includes hands-on projects and real-world applications.</p>
+                </div>
+
+                <div class="course-item">
+                    <h3>Advanced Course: Specialized Topic</h3>
+                    <div class="date">Spring 2024</div>
+                    <p>Graduate seminar focusing on cutting-edge research in [area]. Students conduct independent research projects.</p>
+                </div>
+
+                <div class="course-item">
+                    <h3>Introductory Course: Fundamentals</h3>
+                    <div class="date">Fall 2023, Fall 2024</div>
+                    <p>Foundation course for [field] majors. Emphasizes both theoretical understanding and practical skills.</p>
+                </div>
+            </section>
+
+            <section id="cv" class="section">
+                <h2>Curriculum Vitae</h2>
+                
+                <div class="cv-download">
+                    <a href="cv.pdf" target="_blank">Download Full CV (PDF)</a>
+                </div>
+                
+                <h3>Education</h3>
+                <ul style="margin: 15px 0 25px 20px;">
+                    <li><strong>Ph.D. in [Field]</strong>, [University], [Year]</li>
+                    <li><strong>M.S. in [Field]</strong>, [University], [Year]</li>
+                    <li><strong>B.S. in [Field]</strong>, [University], [Year]</li>
+                </ul>
+                
+                <h3>Professional Experience</h3>
+                <ul style="margin: 15px 0 25px 20px;">
+                    <li><strong>Assistant Professor</strong>, [Current University], [Year]-Present</li>
+                    <li><strong>Postdoctoral Researcher</strong>, [Previous Institution], [Year]-[Year]</li>
+                </ul>
+                
+                <h3>Honors & Awards</h3>
+                <ul style="margin: 15px 0 20px;">
+                    <li>Award Name, [Year]</li>
+                    <li>Fellowship Name, [Year]</li>
+                    <li>Recognition Name, [Year]</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Dr. Your Name. All rights reserved.</p>
+            <p>Last updated: July 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple navigation highlighting
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('.section');
+
+        function highlightNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNav);
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                const offsetTop = targetSection.offsetTop - 80;
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
