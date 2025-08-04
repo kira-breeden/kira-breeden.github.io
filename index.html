@@ -132,7 +132,7 @@
             padding-bottom: 10px;
         }
 
-        .research-item, .publication-item, .course-item {
+        .research-item, .publication-item, .course-item, .poster-item {
             margin-bottom: 25px;
             padding: 20px;
             border-left: 4px solid #3498db;
@@ -140,7 +140,7 @@
             border-radius: 0 8px 8px 0;
         }
 
-        .research-item h3, .publication-item h3, .course-item h3 {
+        .research-item h3, .publication-item h3, .course-item h3, .poster-item h3 {
             color: #2c3e50;
             margin-bottom: 10px;
             font-size: 1.2em;
@@ -152,6 +152,35 @@
 
         .course-item {
             border-left-color: #27ae60;
+        }
+
+        .poster-item {
+            border-left-color: #9b59b6;
+            position: relative;
+        }
+
+        .poster-item .pdf-link {
+            display: inline-block;
+            background: #9b59b6;
+            color: white;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .poster-item .pdf-link:hover {
+            background: #8e44ad;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(155, 89, 182, 0.3);
+        }
+
+        .poster-item .pdf-link::before {
+            content: "📄 ";
+            margin-right: 5px;
         }
 
         .date {
@@ -245,10 +274,10 @@
             <h1>Kira Breeden</h1>
             <div class="title"> Psychology PhD Student <br>[University of Wisconsin-Madison]</div>
             <div class="contact-info">
-                <a href="mailto:kbreeden@wisc.edu">📧 Email</a>
-                <a href="https://scholar.google.com/citations?user=YOUR_ID">📚 Google Scholar</a> 
-                <a href="https://linkedin.com/in/kirabreeden">💼 LinkedIn</a> 
-                <!-- <a href="https://twitter.com/yourusername">🐦 Twitter</a>  -->
+                <a href="mailto:kbreeden@wisc.edu">Email</a>
+                <a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a> 
+                <a href="https://linkedin.com/in/kirabreeden">LinkedIn</a> 
+                <a href="https://bsky.app/profile/kira-bre.bsky.social">BlueSky</a> 
             </div>
         </header>
 
@@ -257,6 +286,7 @@
                 <li><a href="#about" class="active">About</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
+                <li><a href="#posters">Posters</a></li>
                 <li><a href="#teaching">Teaching</a></li>
                 <li><a href="#cv">CV</a></li>
             </ul>
@@ -311,28 +341,47 @@
                 
                 <h3>Conference Proceedings</h3>
 
-                <div class="publication-item"> <!-- TO DO -->
+                <!-- <div class="publication-item"> 
                     <div class="date">2025</div>
                     <h3>"Who Notices Object Repeats? Individual Differences in Inner Experience Predict Repetition Priming"</h3>
                     <p><strong>Kira Breeden </strong> and Gary Lupyan <em>CogSci 2025</em>
                     <p>Inner speech predicts category repetition priming and verbal interference does not predict variations in this effect. </p>
-                </div>
-
-                <!-- <div class="publication-item">
-                    <div class="date">2023</div>
-                    <h3>Another Important Publication</h3>
-                    <p><strong>Your Name</strong>, Collaborator Name. <em>Conference Proceedings</em>, pp. X-Y.</p>
-                    <p>Summary of this work and its impact on the field.</p>
-                </div>
-
-                <div class="publication-item">
-                    <div class="date">2023</div>
-                    <h3>Collaborative Research Paper</h3>
-                    <p>First Author, <strong>Your Name</strong>, Third Author. <em>High-Impact Journal</em>, Vol. A, No. B.</p>
-                    <p>Description of your contribution to this collaborative effort.</p>
                 </div> -->
 
+                <!-- Template for future publications -->
+                
+                <div class="publication-item">
+                    <div class="date">2025</div>
+                    <h3><a href="https://escholarship.org/uc/item/9gf9k64k" target="_blank">"Who Notices Object Repeats? Individual Differences in Inner Experience Predict Repetition Priming"</a></h3>
+                    <p><strong>Kira Breeden</strong>, Gary Lupyan <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, Vol. 47.</p>
+                    <!-- <p>Brief description of the publication and its findings.</p> -->
+                </div>
+               
+
                 <p style="margin-top: 20px;"><a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">View all publications on Google Scholar →</a></p>
+            </section>
+
+            <section id="posters" class="section">
+                <h2>Conference Posters</h2>
+
+                <div class="poster-item">
+                    <div class="date">2025</div>
+                    <h3>"Who Notices Object Repeats? Individual Differences in Inner Experience Predict Repetition Priming"</h3>
+                    <p><strong>Kira Breeden</strong> and Gary Lupyan <em>CogSci 2025</em></p>
+                    <!-- <p>Inner speech predicts category repetition priming and verbal interference does not predict variations in this effect.</p> -->
+                    <a href="posters/cogsci2025_inner_speech_poster.pdf" class="pdf-link" target="_blank">View Poster</a>
+                </div>
+
+                <!-- Template for future posters -->
+                <!-- 
+                <div class="poster-item">
+                    <div class="date">2024</div>
+                    <h3>"Another Poster Title"</h3>
+                    <p><strong>Kira Breeden</strong>, Collaborator Name <em>Conference Name 2024</em></p>
+                    <p>Brief description of the poster content and findings.</p>
+                    <a href="posters/conference2024_poster.pdf" class="pdf-link" target="_blank">View Poster</a>
+                </div>
+                -->
             </section>
 
             <section id="teaching" class="section">
@@ -363,7 +412,7 @@
                 <h2>Curriculum Vitae</h2>
                 
                 <div class="cv-download">
-                    <a href="KB_CV_01_02_25.pdf" target="_blank">Download Full CV (PDF)</a>
+                    <a href="KB_CV_08_04_2025.pdf" target="_blank">Download Full CV (PDF)</a>
                 </div>
                 
                 <!-- <h3>Education</h3>
