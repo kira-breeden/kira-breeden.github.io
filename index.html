@@ -3,569 +3,609 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kira Breeden Personal Website</title>
+    <title>Kira Breeden</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-light: #9DD9F3;   /* top strip, highlights */
+            --accent-dark: #1F4E66;    /* menu bar, footer, headings */
+            --accent-mid: #23729A;     /* links, dates */
+            --text: #222;
+            --muted: #5a6670;
+            --rule: #dfe5ea;
+            --page-width: 1024px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 56px;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-size: 15px;
             line-height: 1.6;
-            color: #333;
-            background-color: #fafafa;
+            color: var(--text);
+            background: #fff;
         }
 
-        .container {
-            max-width: 1400px;
+        a {
+            color: var(--accent-mid);
+        }
+
+        a:hover {
+            color: var(--accent-dark);
+        }
+
+        /* ---------- Top strip + header ---------- */
+        .top-strip {
+            height: 12px;
+            background: var(--accent-light);
+        }
+
+        .site-header {
+            max-width: var(--page-width);
             margin: 0 auto;
-            padding: 20px;
+            padding: 22px 20px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        header {
-            background: linear-gradient(135deg, #9DD9F3, #9DD9F3);
-            color: #1F4E66;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
+        .site-header h1 {
+            font-size: 2.3em;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--accent-dark);
+            letter-spacing: -0.01em;
         }
 
-        h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            font-weight: 300;
+        .site-header h1 a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        .title {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-            line-height: 1.4;
+        .site-header .subtitle {
+            font-size: 1.1em;
+            color: var(--muted);
+            margin-top: 4px;
         }
 
-        nav {
-            background: white;
-            padding: 15px 0;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .header-links {
+            display: flex;
+            gap: 18px;
+            font-size: 0.95em;
+            flex-wrap: wrap;
+        }
+
+        .header-links a {
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- Menu bar ---------- */
+        .menu-bar {
+            background: var(--accent-dark);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        nav ul {
+        .menu-bar ul {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            padding: 0 8px;
             list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .menu-bar ul::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu-bar a {
+            display: block;
+            padding: 10px 14px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95em;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .menu-bar a:hover,
+        .menu-bar a.active {
+            color: var(--accent-light);
+            border-bottom-color: var(--accent-light);
+        }
+
+        /* ---------- Two-column layout ---------- */
+        .content {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            padding: 36px 20px 60px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 72px;
+        }
+
+        .sidebar img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2em;
+            color: var(--accent-dark);
+        }
+
+        .sidebar .role {
+            font-weight: 600;
+            font-size: 0.92em;
+            margin-bottom: 12px;
+        }
+
+        .sidebar p {
+            font-size: 0.9em;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            font-size: 0.9em;
+            border-top: 1px solid var(--rule);
+        }
+
+        .sidebar li {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .sidebar li a {
+            display: block;
+            padding: 6px 0;
+            text-decoration: none;
+        }
+
+        .sidebar li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- Main content ---------- */
+        main section {
+            margin-bottom: 44px;
+        }
+
+        main h2 {
+            font-size: 1.5em;
+            color: var(--accent-dark);
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 18px;
+        }
+
+        main h3.subhead {
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin: 22px 0 10px;
+        }
+
+        main p {
+            margin-bottom: 14px;
+        }
+
+        /* list entries: date column + body */
+        .entry {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .entry .when {
+            color: var(--accent-mid);
+            font-size: 0.9em;
+            font-weight: 500;
+            padding-top: 1px;
+        }
+
+        .entry .what h4 {
+            font-size: 1em;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .entry .what h4 a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .entry .what h4 a:hover {
+            color: var(--accent-mid);
+            text-decoration: underline;
+        }
+
+        .entry .what p {
+            margin: 2px 0 0;
+            font-size: 0.93em;
+            color: var(--muted);
+        }
+
+        .entry .what .links {
+            margin-top: 4px;
+            font-size: 0.88em;
+        }
+
+        .entry .what .links a {
+            margin-right: 12px;
+        }
+
+        .research-topic {
+            margin-bottom: 16px;
+        }
+
+        .research-topic h4 {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .more-link {
+            font-size: 0.93em;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            background: var(--accent-dark);
+            color: #dbe9f1;
+            font-size: 0.85em;
+        }
+
+        footer .inner {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            padding: 28px 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #23729A;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+        footer a {
+            color: #fff;
         }
 
-        nav a:hover, nav a.active {
-            background: #9DD9F3;
-            color: #1F4E66;
-            transform: translateY(-1px);
-        }
-
-        .section {
-            background: white;
-            margin-bottom: 30px;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-2px);
-        }
-
-        .section h2 {
-            color: #23729A;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #9DD9F3;
-            padding-bottom: 10px;
-        }
-
-        /* About section with profile layout */
-        .about-content {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .profile-sidebar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 200px;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid #9DD9F3;
-            margin-bottom: 20px;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .social-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            width: 100%;
-        }
-
-        .social-buttons a {
-            color: #1F4E66;
-            text-decoration: none;
-            padding: 8px 16px;
-            background: #9DD9F3;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        .social-buttons a:hover {
-            background: #7CC9EC;
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(157, 217, 243, 0.3);
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text p {
-            margin-bottom: 15px;
-        }
-
-        .research-item, .publication-item, .course-item, .poster-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            border-left: 4px solid #9DD9F3;
-            background: #f8f9fa;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .research-item h3, .publication-item h3, .course-item h3, .poster-item h3 {
-            color: #23729A;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        .publication-item {
-            border-left-color: #23729A;
-        }
-
-        .course-item {
-            border-left-color: #23729A;
-        }
-
-        .poster-item {
-            border-left-color: #23729A;
-            position: relative;
-        }
-
-        .poster-item .pdf-link {
-            display: inline-block;
-            background: #9DD9F3;
-            color: #1F4E66;
-            padding: 6px 12px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 500;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .poster-item .pdf-link:hover {
-            background: #7CC9EC;
-            transform: translateY(-1px);
-            box-shadow: 0 3px 10px rgba(157, 217, 243, 0.3);
-        }
-
-        .date {
-            color: #23729A;
-            font-style: italic;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-        }
-
-        .instructor {
-            color: #23729A;
-            font-style: italic;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-        }
-
-        .tags {
-            margin-top: 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #ecf0f1;
-            color: #23729A;
-            padding: 4px 10px;
-            margin: 2px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            border: 1px solid #bdc3c7;
-        }
-
-        .cv-download {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .cv-download a {
-            background: #9DD9F3;
-            color: #1F4E66;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .cv-download a:hover {
-            background: #7CC9EC;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(157, 217, 243, 0.3);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            color: #23729A;
-            border-top: 1px solid #ecf0f1;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 2.2em;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .section {
-                padding: 25px;
+        /* ---------- Mobile ---------- */
+        @media (max-width: 760px) {
+            .site-header {
+                padding: 18px 16px 14px;
             }
 
-            .about-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 25px;
+            .site-header h1 {
+                font-size: 1.9em;
             }
 
-            .profile-sidebar {
-                align-items: center;
+            .content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 24px 16px 48px;
             }
 
-            .social-buttons {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
+            .sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 16px;
+                align-items: start;
             }
 
-            .about-text {
-                text-align: left;
+            .sidebar img {
+                margin-bottom: 0;
+            }
+
+            .entry {
+                grid-template-columns: 1fr;
+                gap: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Kira Breeden</h1>
-            <div class="title">Psychology PhD Student<br>University of Wisconsin-Madison</div>
-        </header>
+    <div class="top-strip"></div>
 
-        <nav>
-            <ul>
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#posters">Posters</a></li>
-                <li><a href="#talks">Invited Talks</a></li>
-                <li><a href="#guest-lectures">Guest Lectures</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#cv">CV</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div>
+            <h1><a href="#about">Kira Breeden</a></h1>
+            <div class="subtitle">Psychology PhD Student · University of Wisconsin–Madison</div>
+        </div>
+        <div class="header-links">
+            <a href="mailto:kbreeden@wisc.edu">Email</a>
+            <a href="https://scholar.google.com/citations?user=BUeyPncAAAAJ&hl=en" target="_blank">Scholar</a>
+            <a href="Breeden_CV_updated_10012026.pdf" target="_blank">CV</a>
+        </div>
+    </header>
+
+    <nav class="menu-bar">
+        <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#posters">Posters</a></li>
+            <li><a href="#talks">Invited Talks</a></li>
+            <li><a href="#guest-lectures">Guest Lectures</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#cv">CV</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <aside class="sidebar">
+            <img src="KB_Casual_Headshot.JPG" alt="Kira Breeden">
+            <div>
+                <h2>Kira Breeden</h2>
+                <div class="role">PhD Student, Psychology</div>
+                <p>University of Wisconsin–Madison<br>Advisor: Gary Lupyan</p>
+                <ul>
+                    <li><a href="mailto:kbreeden@wisc.edu">kbreeden@wisc.edu</a></li>
+                    <li><a href="https://scholar.google.com/citations?user=BUeyPncAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+                    <li><a href="https://linkedin.com/in/kirabreeden" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://bsky.app/profile/kira-bre.bsky.social" target="_blank">BlueSky</a></li>
+                    <li><a href="Breeden_CV_updated_10012026.pdf" target="_blank">CV (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
 
         <main>
-            <section id="about" class="section">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <div class="profile-sidebar">
-                        <img src="KB_Casual_Headshot.JPG" alt="Profile Photo" class="profile-img">
-                        <div class="social-buttons">
-                            <a href="mailto:kbreeden@wisc.edu">Email</a>
-                            <a href="https://scholar.google.com/citations?user=BUeyPncAAAAJ&hl=en">Google Scholar</a> 
-                            <a href="https://linkedin.com/in/kirabreeden">LinkedIn</a> 
-                            <a href="https://bsky.app/profile/kira-bre.bsky.social">BlueSky</a> 
-                        </div>
-                    </div>
-                    <div class="about-text">
-                        <p>I am a fourth-year PhD student in the Department of Psychology at The University of Wisconsin-Madison, working with Professor Gary Lupyan. My research sits at the intersection of language and cognition, with a focus on how people process and resolve semantic ambiguity — specifically, how we recover meaning by exploiting the distributional properties of language.</p>
-                        <p>I received my B.S. in Computational Cognitive Science from The University of Michigan, where I worked under the supervision of Dr. Twila Tardif and Dr. Susan Gelman. Prior to my PhD at the University of Wisconsin-Madison, I completed a Master in Data Science at Northwestern University and worked as a Data Scientist for two years.</p>
-                        <p>I am interested in how linguistic context shapes semantic representation, and how the statistical structure of language provides the scaffolding through which ambiguous meaning becomes interpretable. I also bring an inner speech lens to these questions, investigating how individual differences in inner speech experience predict variation in categorical and semantic cognition.</p>
-                    </div>
-                </div>
+            <section id="about">
+                <h2>About</h2>
+                <p>I am a fourth-year PhD student in the Department of Psychology at The University of Wisconsin-Madison, working with Professor Gary Lupyan. My research sits at the intersection of language and cognition, with a focus on how people process and resolve semantic ambiguity — specifically, how we recover meaning by exploiting the distributional properties of language.</p>
+                <p>I received my B.S. in Computational Cognitive Science from The University of Michigan, where I worked under the supervision of Dr. Twila Tardif and Dr. Susan Gelman. Prior to my PhD at the University of Wisconsin-Madison, I completed a Master in Data Science at Northwestern University and worked as a Data Scientist for two years.</p>
+                <p>I am interested in how linguistic context shapes semantic representation, and how the statistical structure of language provides the scaffolding through which ambiguous meaning becomes interpretable. I also bring an inner speech lens to these questions, investigating how individual differences in inner speech experience predict variation in categorical and semantic cognition.</p>
             </section>
 
-            <section id="research" class="section">
+            <section id="research">
                 <h2>Research Interests</h2>
-                
-                <div class="research-item">
-                    <h3>Semantic Representation and Ambiguity</h3>
+                <div class="research-topic">
+                    <h4>Semantic Representation and Ambiguity</h4>
                     <p>I am currently involved in multiple projects investigating the relationship between contextual semantic ambiguity and our ability to infer meaning of unknown or novel words.</p>
                 </div>
-
-                <div class="research-item">
-                    <h3>Inner Speech</h3> 
+                <div class="research-topic">
+                    <h4>Inner Speech</h4>
                     <p>I am also interested in individual differences in inner speech and what areas of language processing, comprehension, and representation these differences may predict.</p>
                 </div>
             </section>
 
-            <section id="publications" class="section">
+            <section id="publications">
                 <h2>Selected Publications</h2>
-                
-                <h3>Journal Publications</h3>
 
-                <div class="publication-item">
-                    <div class="date">In Prep</div>
-                    <h3>"Category repetition priming, rhyme identification, and category verification are predicted by inner speech"</h3>
-                    <p><strong>Kira Breeden</strong>, Gary Lupyan</p>
+                <h3 class="subhead">Journal Publications</h3>
+                <div class="entry">
+                    <div class="when">In Prep</div>
+                    <div class="what">
+                        <h4>Category repetition priming, rhyme identification, and category verification are predicted by inner speech</h4>
+                        <p><strong>Breeden, K.</strong>, &amp; Lupyan, G.</p>
+                    </div>
                 </div>
 
-                <h3 style="margin-top: 25px;">Conference Proceedings</h3>
-
-                <div class="publication-item">
-                    <div class="date">2026</div>
-                    <h3><a href="https://escholarship.org/uc/item/6h26z0q7" target="_blank">"Finding the Conceptual Glue: Ad-hoc Categorization in People and LLMs"</a></h3>
-                    <p>Altenhof, A. M., <strong>Breeden, K.</strong>, &amp; Lupyan, G. (2026). Finding the Conceptual Glue: Ad-hoc Categorization in People and LLMs. <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, 48. Retrieved from <a href="https://escholarship.org/uc/item/6h26z0q7" target="_blank">https://escholarship.org/uc/item/6h26z0q7</a></p>
+                <h3 class="subhead">Conference Proceedings</h3>
+                <div class="entry">
+                    <div class="when">2026</div>
+                    <div class="what">
+                        <h4><a href="https://escholarship.org/uc/item/6h26z0q7" target="_blank">Finding the Conceptual Glue: Ad-hoc Categorization in People and LLMs</a></h4>
+                        <p>Altenhof, A. M., <strong>Breeden, K.</strong>, &amp; Lupyan, G. (2026). <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, 48.</p>
+                        <div class="links"><a href="https://escholarship.org/uc/item/6h26z0q7" target="_blank">eScholarship</a></div>
+                    </div>
+                </div>
+                <div class="entry">
+                    <div class="when">2026</div>
+                    <div class="what">
+                        <h4><a href="https://escholarship.org/uc/item/9mh5s46x" target="_blank">Recovering Meaning from "Meaningless" Texts: Semantic Ambiguity Reduction as Recovery of Distributional Structure</a></h4>
+                        <p><strong>Breeden, K.</strong>, &amp; Lupyan, G. (2026). <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, 48.</p>
+                        <div class="links"><a href="https://escholarship.org/uc/item/9mh5s46x" target="_blank">eScholarship</a></div>
+                    </div>
+                </div>
+                <div class="entry">
+                    <div class="when">2025</div>
+                    <div class="what">
+                        <h4><a href="https://escholarship.org/uc/item/9gf9k64k" target="_blank">Who notices object repeats? Individual differences in inner experience influence repetition priming</a></h4>
+                        <p><strong>Breeden, K.</strong>, &amp; Lupyan, G. (2025). <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, 47.</p>
+                        <div class="links"><a href="https://escholarship.org/uc/item/9gf9k64k" target="_blank">eScholarship</a></div>
+                    </div>
                 </div>
 
-                <div class="publication-item">
-                    <div class="date">2026</div>
-                    <h3><a href="https://escholarship.org/uc/item/9mh5s46x" target="_blank">"Recovering Meaning from 'Meaningless' Texts: Semantic Ambiguity Reduction as Recovery of Distributional Structure"</a></h3>
-                    <p><strong>Breeden, K.</strong>, &amp; Lupyan, G. (2026). Recovering Meaning from "Meaningless" Texts: Semantic Ambiguity Reduction as Recovery of Distributional Structure. <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, 48. Retrieved from <a href="https://escholarship.org/uc/item/9mh5s46x" target="_blank">https://escholarship.org/uc/item/9mh5s46x</a></p>
-                </div>
-
-                <div class="publication-item">
-                    <div class="date">2025</div>
-                    <h3><a href="https://escholarship.org/uc/item/9gf9k64k" target="_blank">"Who notices object repeats? Individual differences in inner experience influence repetition priming"</a></h3>
-                    <p><strong>Kira Breeden</strong>, Gary Lupyan <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, Vol. 47.</p>
-                </div>
-
-                <p style="margin-top: 20px;"><a href="https://scholar.google.com/citations?user=BUeyPncAAAAJ&hl=en" target="_blank">View all publications on Google Scholar →</a></p>
+                <p class="more-link"><a href="https://scholar.google.com/citations?user=BUeyPncAAAAJ&hl=en" target="_blank">View all publications on Google Scholar →</a></p>
             </section>
 
-            <section id="posters" class="section">
+            <section id="posters">
                 <h2>Conference Posters</h2>
-
-                <div class="poster-item">
-                    <div class="date">July 2026</div>
-                    <h3>"Finding the Conceptual Glue: Ad-hoc Categorization in People and LLMs"</h3>
-                    <p>Altenhof, A.*, <strong>Breeden, K.*</strong>, &amp; Lupyan, G. <em>CogSci 2026</em></p>
-                    <a href="posters/anticonnections_cogsci2026_final.pdf" class="pdf-link" target="_blank">View Poster</a>
+                <div class="entry">
+                    <div class="when">Jul 2026</div>
+                    <div class="what">
+                        <h4>Finding the Conceptual Glue: Ad-hoc Categorization in People and LLMs</h4>
+                        <p>Altenhof, A.*, <strong>Breeden, K.*</strong>, &amp; Lupyan, G. <em>CogSci 2026</em></p>
+                        <div class="links"><a href="posters/anticonnections_cogsci2026_final.pdf" target="_blank">Poster (PDF)</a></div>
+                    </div>
                 </div>
-
-                <div class="poster-item">
-                    <div class="date">July 2026</div>
-                    <h3>"Recovering Meaning from 'Meaningless' Texts: Semantic Ambiguity Reduction as Recovery of Distributional Structure"</h3>
-                    <p><strong>Breeden, K.*</strong>, &amp; Lupyan, G. <em>CogSci 2026</em></p>
-                    <a href="posters/bubblesem_cogsci2026_final.pdf" class="pdf-link" target="_blank">View Poster</a>
+                <div class="entry">
+                    <div class="when">Jul 2026</div>
+                    <div class="what">
+                        <h4>Recovering Meaning from "Meaningless" Texts: Semantic Ambiguity Reduction as Recovery of Distributional Structure</h4>
+                        <p><strong>Breeden, K.*</strong>, &amp; Lupyan, G. <em>CogSci 2026</em></p>
+                        <div class="links"><a href="posters/bubblesem_cogsci2026_final.pdf" target="_blank">Poster (PDF)</a></div>
+                    </div>
                 </div>
-
-                <div class="poster-item">
-                    <div class="date">August 2025</div>
-                    <h3>"Who notices object repeats? Individual differences in inner experience influence repetition priming"</h3>
-                    <p><strong>Kira Breeden</strong> and Gary Lupyan <em>CogSci 2025</em></p>
-                    <a href="posters/cogsci2025_inner_speech_poster.pdf" class="pdf-link" target="_blank">View Poster</a>
+                <div class="entry">
+                    <div class="when">Aug 2025</div>
+                    <div class="what">
+                        <h4>Who notices object repeats? Individual differences in inner experience influence repetition priming</h4>
+                        <p><strong>Breeden, K.</strong>, &amp; Lupyan, G. <em>CogSci 2025</em></p>
+                        <div class="links"><a href="posters/cogsci2025_inner_speech_poster.pdf" target="_blank">Poster (PDF)</a></div>
+                    </div>
                 </div>
-
-                <div class="poster-item">
-                    <div class="date">Spring 2025</div>
-                    <h3>"Who notices object repeats? Individual differences in inner experience influence repetition priming"</h3>
-                    <p><strong>Kira Breeden</strong> and Gary Lupyan <em>UW-Madison Psychology Research Fair</em></p>
+                <div class="entry">
+                    <div class="when">Spring 2025</div>
+                    <div class="what">
+                        <h4>Who notices object repeats? Individual differences in inner experience influence repetition priming</h4>
+                        <p><strong>Breeden, K.</strong>, &amp; Lupyan, G. <em>UW-Madison Psychology Research Fair</em></p>
+                    </div>
                 </div>
             </section>
 
-            <section id="talks" class="section">
+            <section id="talks">
                 <h2>Invited Talks</h2>
-
-                <div class="research-item">
-                    <div class="date">October 31, 2025</div>
-                    <h3>"Reasoning in Humans and LLMs: Language as Compression and Pattern-Matching, But Not Logic"</h3>
-                    <p>Upgrade Science Insights Lunch Talk Series</p>
+                <div class="entry">
+                    <div class="when">Oct 31, 2025</div>
+                    <div class="what">
+                        <h4>Reasoning in Humans and LLMs: Language as Compression and Pattern-Matching, But Not Logic</h4>
+                        <p>Upgrade Science Insights Lunch Talk Series</p>
+                    </div>
                 </div>
-
-                <div class="research-item">
-                    <div class="date">September 18, 2025</div>
-                    <h3>"Power Analyses! What are they? Why are they tricky? How can we use them?"</h3>
-                    <p>Language Acquisition and Bilingualism Lab, UW-Madison</p>
+                <div class="entry">
+                    <div class="when">Sep 18, 2025</div>
+                    <div class="what">
+                        <h4>Power Analyses! What are they? Why are they tricky? How can we use them?</h4>
+                        <p>Language Acquisition and Bilingualism Lab, UW-Madison</p>
+                    </div>
                 </div>
-
-                <div class="research-item">
-                    <div class="date">October 9, 2024</div>
-                    <h3>"Inner Speech as a Predictor of Individual Differences in Cognition"</h3>
-                    <p>Cognitive Origins Lab, UW-Madison</p>
+                <div class="entry">
+                    <div class="when">Oct 9, 2024</div>
+                    <div class="what">
+                        <h4>Inner Speech as a Predictor of Individual Differences in Cognition</h4>
+                        <p>Cognitive Origins Lab, UW-Madison</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="guest-lectures" class="section">
+            <section id="guest-lectures">
                 <h2>Guest Lectures</h2>
-
-                <div class="research-item">
-                    <div class="date">April 13, 2026</div>
-                    <h3>"Missing Data: Why we care and how we handle it"</h3>
-                    <p>Design and Analysis of Psychological Experiments II, UW-Madison — Instructor: Dr. Markus Brauer</p>
+                <div class="entry">
+                    <div class="when">Apr 13, 2026</div>
+                    <div class="what">
+                        <h4>Missing Data: Why we care and how we handle it</h4>
+                        <p>Design and Analysis of Psychological Experiments II, UW-Madison — Instructor: Dr. Markus Brauer</p>
+                    </div>
                 </div>
-
-                <div class="research-item">
-                    <div class="date">November 24, 2025</div>
-                    <h3>"Power Analyses! What are they? Why are they tricky? How can we estimate power in LMER?"</h3>
-                    <p>Statistics for Linguists, UW-Madison — Instructor: Dr. Eric Raimy</p>
+                <div class="entry">
+                    <div class="when">Nov 24, 2025</div>
+                    <div class="what">
+                        <h4>Power Analyses! What are they? Why are they tricky? How can we estimate power in LMER?</h4>
+                        <p>Statistics for Linguists, UW-Madison — Instructor: Dr. Eric Raimy</p>
+                    </div>
                 </div>
-
-                <div class="research-item">
-                    <div class="date">November 12, 2024</div>
-                    <h3>"Language, Cognition, and Inner Speech"</h3>
-                    <p>Animal Cognition, UW-Madison — Instructor: Dr. Stephen Ferrigno</p>
+                <div class="entry">
+                    <div class="when">Nov 12, 2024</div>
+                    <div class="what">
+                        <h4>Language, Cognition, and Inner Speech</h4>
+                        <p>Animal Cognition, UW-Madison — Instructor: Dr. Stephen Ferrigno</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="teaching" class="section">
+            <section id="teaching">
                 <h2>Teaching Assistantships</h2>
-
-                <div class="course-item">
-                    <h3>Design and Analysis of Psychological Experiments II</h3>
-                    <div class="instructor">Instructor: Dr. Marcus Brauer</div>
-                    <div class="date">Spring 2026</div>
-                    <p>Second course in a graduate statistics sequence, covering advanced methods including linear mixed-effects models, repeated measures mediation analysis, exploratory factor analysis, signal detection theory, missing data, and Bayesian statistics. TAship involved teaching an independent lab section and creating original lab and homework materials.</p>
+                <div class="entry">
+                    <div class="when">Spring 2026</div>
+                    <div class="what">
+                        <h4>Design and Analysis of Psychological Experiments II</h4>
+                        <p>Instructor: Dr. Markus Brauer</p>
+                        <p>Second course in a graduate statistics sequence, covering advanced methods including linear mixed-effects models, repeated measures mediation analysis, exploratory factor analysis, signal detection theory, missing data, and Bayesian statistics. TAship involved teaching an independent lab section and creating original lab and homework materials.</p>
+                    </div>
                 </div>
-
-                <div class="course-item">
-                    <h3>PSYCH 210: Basic Statistics for Psychology</h3>
-                    <div class="instructor">Instructor: Dr. Rebecca Addington</div>
-                    <div class="date">Spring 2025</div>
-                    <p>Undergraduate level course covering an introduction to statistics. TAship included teaching four lab sections every week including content on performing statistical tests by hand, running statistical software, and reviewing essential concepts.</p>
+                <div class="entry">
+                    <div class="when">Spring 2025</div>
+                    <div class="what">
+                        <h4>PSYCH 210: Basic Statistics for Psychology</h4>
+                        <p>Instructor: Dr. Rebecca Addington</p>
+                        <p>Undergraduate level course covering an introduction to statistics. TAship included teaching four lab sections every week including content on performing statistical tests by hand, running statistical software, and reviewing essential concepts.</p>
+                    </div>
                 </div>
-
-                <div class="course-item">
-                    <h3>PSYCH 505: Animal Cognition</h3>
-                    <div class="instructor">Instructor: Dr. Stephen Ferrigno</div>
-                    <div class="date">Fall 2024</div>
-                    <p>Undergraduate upper-level breadth course on and introduction to cognition in animals. TAship included teaching three discussion sections every week discussing content and evaluating presentations on primary research articles.</p>
+                <div class="entry">
+                    <div class="when">Fall 2024</div>
+                    <div class="what">
+                        <h4>PSYCH 505: Animal Cognition</h4>
+                        <p>Instructor: Dr. Stephen Ferrigno</p>
+                        <p>Undergraduate upper-level breadth course on and introduction to cognition in animals. TAship included teaching three discussion sections every week discussing content and evaluating presentations on primary research articles.</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="awards" class="section">
+            <section id="awards">
                 <h2>Grants, Honors, and Awards</h2>
-
-                <div class="research-item">
-                    <div class="date">September 2025</div>
-                    <h3>UW-Madison Psychology Department Menzies Research Fund Award</h3>
+                <div class="entry">
+                    <div class="when">Sep 2025</div>
+                    <div class="what">
+                        <h4>UW-Madison Psychology Department Menzies Research Fund Award</h4>
+                    </div>
                 </div>
-
-                <div class="research-item">
-                    <div class="date">January 2024</div>
-                    <h3>UW-Madison Psychology Department Service to the Department Award</h3>
+                <div class="entry">
+                    <div class="when">Jan 2024</div>
+                    <div class="what">
+                        <h4>UW-Madison Psychology Department Service to the Department Award</h4>
+                    </div>
                 </div>
             </section>
 
-            <section id="cv" class="section">
+            <section id="cv">
                 <h2>Curriculum Vitae</h2>
-                
-                <div class="cv-download">
-                    <a href="Breeden_CV_updated_10012026.pdf" target="_blank">Download Full CV (PDF)</a>
-                </div>
+                <p><a href="Breeden_CV_updated_10012026.pdf" target="_blank">Download full CV (PDF)</a></p>
             </section>
         </main>
-
-        <footer>
-            <p>&copy; 2025 Kira Breeden All rights reserved.</p>
-            <p>Last updated: May 2026</p>
-        </footer>
     </div>
 
+    <footer>
+        <div class="inner">
+            <span>&copy; 2026 Kira Breeden</span>
+            <span>Last updated: October 2026</span>
+        </div>
+    </footer>
+
     <script>
-        // Simple navigation highlighting
-        const navLinks = document.querySelectorAll('nav a');
-        const sections = document.querySelectorAll('.section');
+        // Highlight the menu item for the section currently in view
+        const navLinks = document.querySelectorAll('.menu-bar a');
+        const sections = document.querySelectorAll('main section');
 
         function highlightNav() {
-            let current = '';
+            let current = sections[0].id;
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
+                if (scrollY >= section.offsetTop - 120) {
+                    current = section.id;
                 }
             });
-
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
             });
         }
 
         window.addEventListener('scroll', highlightNav);
-
-        // Smooth scrolling for navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                const offsetTop = targetSection.offsetTop - 80;
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            });
-        });
+        highlightNav();
     </script>
 </body>
 </html>
